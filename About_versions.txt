@@ -1,0 +1,2 @@
+- New_Version: New version of the tool. You should use this one.
+- WinRAR_Version: Previous version of my tool using WinRAR. The issue if EXE built with WinRAR are recignized are Trojan by some antivirus even if it's false positive.

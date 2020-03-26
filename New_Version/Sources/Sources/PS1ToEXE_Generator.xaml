@@ -1,0 +1,115 @@
+﻿<Controls:MetroWindow 
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"		
+xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"			
+Title="PS1 To EXE Generator - v1.2" 
+Height="Auto" Width="410" 
+ResizeMode="NoResize"
+BorderBrush="Blue"
+BorderThickness="1"
+SizeToContent="Height"
+>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Create Metro Style  -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+	
+   <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Name="Change_Theme">
+                <StackPanel Orientation="Horizontal">
+					<iconPacks:PackIconOcticons Kind="Paintcan" Margin="0,0,0,0" ToolTip="Change the main theme of the tool"/>															
+                </StackPanel>
+            </Button>			
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>		
+	
+   <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+					<iconPacks:PackIconOcticons Kind="terminal" Margin="0,0,0,0" ToolTip="Change the main theme of the tool"/>															
+                </StackPanel>
+            </Button>			
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>		
+
+    <Grid Margin="0,0,0,10">       
+        <StackPanel Orientation="Vertical" Margin="10,10,10,0" HorizontalAlignment="Center">		
+			<StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+				<StackPanel   Margin="10,0,0,0" Orientation="Horizontal" >							
+					<iconPacks:PackIconOcticons Kind="terminal" Width="35" Height="35" Margin="0,5,0,0"/>
+					<Label FontSize="25"  Content="PS1" Foreground="#5980F1" Margin="10,0,0,0" ></Label>
+					<Label FontSize="25"  Content="To" Foreground="DimGray" Margin="0,0,0,0" ></Label>					
+					<Label FontSize="25"  Content="EXE" Foreground="#5980F1" Margin="0,0,0,0"></Label>	
+					<Label FontSize="25"  Content="Generator" Foreground="DimGray" Margin="0,0,0,0"></Label>							
+				</StackPanel>		
+			</StackPanel>			
+
+			<StackPanel Orientation="Vertical" Margin="0,5,0,0">
+				<StackPanel HorizontalAlignment="Center">
+								<Grid>
+									<StackPanel Orientation="Vertical" HorizontalAlignment="Center">							
+									   <GroupBox Header="Content Sources" Height="67" Margin="0,5,0,0" Width="390">
+											<StackPanel>
+												<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,1,0,0">
+													<Button x:Name="browse_exe" Content="Browse" Margin="0,0,0,0" Width="70" Height="19"/>			
+													<TextBox x:Name="exe_sources_textbox" Margin="5,0,0,0" Width="300" Height="19"></TextBox>						
+												</StackPanel>							
+											</StackPanel>             
+										</GroupBox>
+										
+									   <GroupBox Header="EXE export path" Height="67" Margin="0,5,0,0" Width="390">
+											<StackPanel>
+												<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,1,0,0">
+													<Button x:Name="browse_EXE_Path" Content="Browse" Margin="0,0,0,0" Width="70" Height="19"/>			
+													<TextBox x:Name="exe_Final_Path_textbox" Margin="5,0,0,0" Width="300" Height="19"></TextBox>						
+												</StackPanel>							
+											</StackPanel>             
+										</GroupBox>										
+																	
+										<GroupBox Header="EXE informations" Height="105" Margin="0,5,0,0" Width="390">
+											<StackPanel>							
+												<StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+													<Label Content="EXE Name" Margin="4,0,0,0" Width="70"></Label>
+													<TextBox x:Name="exe_name" Margin="0,0,0,0" Width="300" Height="19"></TextBox>
+												</StackPanel>								
+															
+												<StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+													<Label Content="PS1 Name" Margin="4,0,0,0" Width="70"></Label>
+													<ComboBox x:Name="Choose_ps1" SelectedIndex="0" Text="Choose" Height="25" Width="300" Margin="0,0,0,0"/>			
+												</StackPanel>									
+											</StackPanel>             
+										</GroupBox>			
+
+										<GroupBox Header="Icon Path"  Margin="0,5,0,0" Height="70" Width="390">
+											<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,1,0,0">
+												<Button x:Name="browse_icon" Content="Browse" Margin="0,0,0,0" Width="70" Height="19"/>			
+												<TextBox x:Name="icon_sources_textbox" Margin="5,0,0,0" Width="300" Height="19"></TextBox>						
+											</StackPanel>	
+										</GroupBox>	
+									</StackPanel>
+									
+								</Grid>
+				 </StackPanel>
+			 </StackPanel>
+
+			<StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center">
+				<Button x:Name="Build" Content="Build the EXE"  Margin="0,0,0,0" Width="390" Height="30"></Button>
+			</StackPanel>
+			
+        </StackPanel>
+      
+    </Grid>
+</Controls:MetroWindow>        
