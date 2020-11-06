@@ -79,6 +79,12 @@ $browse_exe.Add_Click({
 		{ 		
 			$Script:EXE_folder = $folder.self.Path 
 			$exe_sources_textbox.Text = $EXE_folder	
+			
+			$Check_Sources_Folder_Content = Get-ChildItem $EXE_folder -Recurse |? { $_.PSIsContainer } | Measure-Object | select -Expand Count
+			If($Check_Sources_Folder_Content -gt 0)
+				{
+					[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Warning", "Your project folder contains subfolders.`nThe tool won't include subfolders.")										
+				}			
 
 			$Script:Folder_name = Split-Path -leaf -path $EXE_folder			
 										
@@ -150,15 +156,17 @@ $Build.Add_Click({
 					Rename-item $EXE_Full_Path "$EXE_File_Name.exe" -force						
 					Move-item "$EXE_folder\$EXE_File_Name.exe" $EXE_Export_Folder
 					
-					[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Success :-)", "Your EXE has been created")						
+					[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Success :-)", "Your EXE has been created")		
+					
+					GCI $env:temp | where {$_.name -like "*Make-EXE*"} | remove-item -recurse -Force
 				}
 			Catch
 				{
 					[MahApps.Metro.Controls.Dialogs.DialogManager]::ShowMessageAsync($Form, "Oops :-)", "Your EXE has not been created")										
-				}
-
-			
+				}		
 		}
 })
+
+
 
 $Form.ShowDialog() | Out-Null

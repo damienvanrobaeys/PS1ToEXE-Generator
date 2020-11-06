@@ -4,12 +4,13 @@ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"		
 xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"			
-Title="PS1 To EXE Generator - v1.2" 
+Title="PS1 to EXE Generator - v1.3" 
 Height="Auto" Width="410" 
 ResizeMode="NoResize"
 BorderBrush="Blue"
 BorderThickness="1"
 SizeToContent="Height"
+TitleCaps="false"
 >
 
     <Window.Resources>
